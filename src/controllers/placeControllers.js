@@ -1,8 +1,35 @@
 const config = require('config');
+const placeService = require('../services/places/placeServices');
 
-async function getAllPlaces(req, res){
     //COMPLETE WITH YOUR CODE
-    res.json({msg:"Ok connecting"})
-};
 
-module.exports = {getAllPlaces};
+async function getAllPlaces (req,res,next){
+    res.json({msg:"correct"})
+}
+async function getOnePlace (req,res,next){
+    return ;
+
+}
+
+async function createNewPlace (req,res,next){
+    return ;
+
+}
+
+async function updatePlace (req,res,next){
+    return ;
+
+}
+
+async function deleteOnePlace (req,res,next){
+   return ;
+}
+
+
+module.exports = {
+    getAllPlaces,
+    getOnePlace,
+    createNewPlace,
+    updatePlace,
+    deleteOnePlace,
+ }

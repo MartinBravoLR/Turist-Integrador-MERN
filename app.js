@@ -15,6 +15,6 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 //complete with your resource
-app.use('/', placeRouter);
+app.use('/places', placeRouter);
 
 module.exports = app;
