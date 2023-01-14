@@ -2,11 +2,16 @@ const express = require('express');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
+const mongodb = require('./db/mongodb.connection');
 
 require('dotenv').config();
 
 const placeRouter = require('./src/routes/place');
 const app = express();
+
+mongodb.connectMongoDb()
+.then(() => console.log("Connected to MongoDB"))
+.catch(err => console.log(err));
 
 
 app.use(logger('dev'));
