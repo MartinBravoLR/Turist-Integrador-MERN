@@ -50,7 +50,7 @@ const deleteOnePlace  =async(placeId) =>{
         const PlaceD=await Place.findByIdAndDelete(placeId);
         return placeD;
     } catch (error) {
-        throw error;
+       throw error;
 
     }
 

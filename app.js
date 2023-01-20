@@ -18,12 +18,6 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use((req,res,next) => {
-    res.status(404).json({
-        code:"not found",
-        message:"Page not found"
-    })});
-
 //complete with your resource
 app.use('/v1/places', placeRouter);
 
