@@ -15,7 +15,16 @@ async function getAllPlaces (req,res,next){
 }
 
 async function getOnePlace (req,res,next){
-    return;
+    try {
+        const {placeId} = req.params;
+        const OnePlace=  await placeService.getOnePlace(placeId);
+        res.json(OnePlace);    
+    } catch (error) {
+		res.status(400).json({
+			code: 'bad_request',
+			message: 'Bad request. Please check your parameters values',
+		});
+    }
 }
 
 async function createNewPlace (req,res,next){
