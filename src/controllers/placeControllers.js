@@ -32,7 +32,18 @@ async function createNewPlace (req,res,next){
 }
 
 async function updatePlace (req,res,next){
-    return;
+try {
+    
+       const {placeId}=req.params;
+       const data = req.body;
+       const updateOnePlace=await placeService.updatePlace(placeId,data)
+       res.json(updateOnePlace);    
+}  catch (error) {
+		res.status(400).json({
+			code: 'bad_request',
+			message: 'Bad request. Please check your parameters values',
+		});
+	}    
 }
 
 
