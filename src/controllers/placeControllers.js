@@ -37,7 +37,18 @@ async function updatePlace (req,res,next){
 
 
 async function deleteOnePlace (req,res,next){
-    return;
+try {
+       const {placeId}=req.params;
+       const deleteOnePlace=await placeService.deleteOnePlace(placeId)
+       res.json(deleteOnePlace);
+    
+}   catch (error) {
+		res.status(400).json({
+			code: 'bad_request',
+			message: 'Bad request. Please check your parameters values (Id Incorrect or Invalid)',
+		});
+	}
+
 }
 
 
