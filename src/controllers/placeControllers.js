@@ -4,25 +4,31 @@ const placeService = require('../services/places/placeServices');
     //COMPLETE WITH YOUR CODE
 
 async function getAllPlaces (req,res,next){
-    res.json({msg:"correct"})
+    try {
+        const AllPlaces=  await placeService.getAllPlaces();
+        res.json(AllPlaces);    
+    } catch (error) {
+        res.status(503).json({
+            code: 503,
+            message: "Service unavailable" })
+    }
 }
-async function getOnePlace (req,res,next){
-    return ;
 
+async function getOnePlace (req,res,next){
+    return;
 }
 
 async function createNewPlace (req,res,next){
-    return ;
-
+    return;
 }
 
 async function updatePlace (req,res,next){
-    return ;
-
+    return;
 }
 
+
 async function deleteOnePlace (req,res,next){
-   return ;
+    return;
 }
 
 

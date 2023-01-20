@@ -12,14 +12,20 @@ const app = express();
 mongodb.connectMongoDb()
 .then(() => console.log("Connected to MongoDB"))
 .catch(err => console.log(err));
-
-
+app.use(express.json());
 app.use(logger('dev'));
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.use((req,res,next) => {
+    res.status(404).json({
+        code:"not found",
+        message:"Page not found"
+    })});
+
 //complete with your resource
-app.use('/places', placeRouter);
+app.use('/v1/places', placeRouter);
+
 
 module.exports = app;
