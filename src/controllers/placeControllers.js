@@ -28,7 +28,17 @@ async function getOnePlace (req,res,next){
 }
 
 async function createNewPlace (req,res,next){
-    return;
+    try {
+        const {body,file} = req;
+        console.log(file);
+        const place =await placeService.createNewPlace(body);
+        res.json(place);
+    } catch (error) {
+        res.status(400).json({
+			code: 'bad_request',
+			message: 'Bad request. Please check your parameters values',
+		});
+    }
 }
 
 async function updatePlace (req,res,next){
