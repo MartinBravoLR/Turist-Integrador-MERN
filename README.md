@@ -1,73 +1,53 @@
-
 # CURSO TÉCNICO #5: INTEGRADOR
 
+[![places.png](https://i.postimg.cc/mghtqzpx/places.png)](https://postimg.cc/VJQf06c4)   
+# API Turisr Place LR
 
-El curso Integrador deberá:
+## Open API Spec
+You can check this API Spec on [SwaggerHub.]()
 
-1.  Aplicar las 3 tecnologías: Node, React.
+
+# Getting started
+
+To get the Node server running locally:
+
+- Clone this repo
+- `npm install` to install all required dependencies
+- `npm run dev` to start the local server
+- `npm test` to run tests
+
+
+# Code Overview
+
+## Enviroment Variables
+You will need the following enviroment variable setted in an .env file or within your current terminal:
+```
+Mongo_User="your Mongo User"
+Mongo_Pass="your Mongo Password"
+
+```
+To get your credential in Mongo please sign up to their service [here.](https://www.mongodb.com/es/basics/create-database)
+
+## Application Structure
+
+- `app.js` - The entry point to our application. This file defines our express server. It also requires the routes and models we'll be using in the application.
+- `config/` - This folder contains configuration for the api services.
+- `src/routes/` - This folder contains the route definitions for our API.
+- `src/controllers/` - This folder contains the controller definitions.
+- `src/services/` - This folder contains the services that will be used across the controllers.
+- `db/` - This folder contains the database configuration and connections
+- `test/` - This folder contains the test of the api service
+
+## API Turist Places LR ENDPOINTS
+
+-   GET :: /places/ ---> Get an array with all places-
     
-2.  Darles a los participantes una elección libre de la temática siguiendo alguno de los siguientes ejes temáticos:
+-   GET :: /places/:placeId ---> Get a place with the specified id.
     
-
--   La Rioja.
+-   POST :: /places/ ---> Create a single placer to the database. Receive data by body.
     
--   Mundial de fútbol de la FIFA.
+-   DELETE :: /places/:placeId ---> Delete an item from the database.
     
+-   PATCH :: /places/:placeId ---> Edit a place with the data sent in body.
 
-Ejemplos:
 
-- Lugares turísticos de La Rioja.
-- Locales de gastronomía.
-- Paradas de colectivo, estaciones de bicicletas públicas, u otro servicio público de interés.
-    
-
-3.  El recurso elegido por la temática debe ser geolocalizable. Se debe incluir un campo a una URL de imagen.
-    
-4.  Tener bien definidos la cantidad de actividades y objetivos de cada una.
-    
-  
-
-Orden:
-
-1.  Node
-    
-2.  React
-        
-
-  
-
-Temas complejos:
-
--   No autenticación
-    
--   Si Redux
-    
-
-  
-  
-  
-
-## Actividades:
-
-### Node.js - Especificaciones
-
-Se solicita un backend hecho en Node.js y Express.js.
-
-Se debe respetar la estructura de los proyectos vistos en el curso 3.
-
-  
-  
-
-Actividad #1: Inicializar proyecto tanto de express como en github, definir scripts en package.json, definir rutas y config de conexión a BD Mongodb. Configurar .gitignore, credenciales sensibles en .env.
-
-Actividad #2: Programación de los endpoints para un CRUD de un recurso. Reemplazar 'resources' por el nombre del recurso. Por ejemplo: stadiums. Siempre en plural.
-
--   GET :: /resources ---> Trae un array con todos los resources.
-    
--   GET :: /resources/:id ---> Trae el resource con la id especificada.
-    
--   POST :: /resources ---> Crea un solo resource a la base de datos. Recibe datos por body. 
-    
--   DELETE :: /resources/:id ---> Borra un elemento de la base de datos.
-    
--   PATCH :: /resources/:id ---> Edita un resource con los datos enviados en body. 
